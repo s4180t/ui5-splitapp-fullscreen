@@ -1,0 +1,20 @@
+div[id$="SplitAppDemo-Master"][data-visible="X"],
+div[id$="SplitAppDemo-Master"][data-visible="X_FS"] {
+    display: block;
+}
+
+div[id$="SplitAppDemo-Master"][data-visible="X_FS"] {
+    width: 100%;
+}
+
+div[id$="SplitAppDemo-Master"] {
+    display: none;
+}
+
+div[id$="SplitAppDemo-Detail"][data-visible="X"] {
+    display: block;
+}
+
+div[id$="SplitAppDemo-Detail"] {
+    display: none;
+}

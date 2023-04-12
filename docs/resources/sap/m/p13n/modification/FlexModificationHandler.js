@@ -1,0 +1,7 @@
+/*!
+ * OpenUI5
+ * (c) Copyright 2009-2023 SAP SE or an SAP affiliate company.
+ * Licensed under the Apache License, Version 2.0 - see LICENSE.txt.
+ */
+sap.ui.define(["./ModificationHandler","sap/m/p13n/FlexUtil","sap/ui/fl/apply/api/FlexRuntimeInfoAPI","sap/m/p13n/enum/PersistenceMode","sap/m/p13n/modules/StateHandlerRegistry"],function(e,t,n,a,r){"use strict";var i;var o=e.extend("sap.m.p13n.modification.FlexModificationHandler");o.prototype.processChanges=function(e,n){var r=e&&e[0]?e[0].selectorElement:undefined;var i=n.mode;var o=i===a.Auto;if(o){i=n.hasVM?"Standard":a.Global}var s=i===a.Global;var l=i===a.Transient;var p=t.handleChanges.call(this,e,s,l);return s?p.then(function(e){return t.saveChanges.call(this,r,e)}):p};o.prototype.waitForChanges=function(e,t){return n.waitForChanges.apply(this,arguments)};o.prototype.reset=function(e,n){var r=n.mode;var i=r===a.Global;var o=!n.hasVM&&n.hasPP&&r===a.Auto;return i||o?t.reset.call(this,e):t.restore.call(this,e)};o.prototype.isModificationSupported=function(e,t){return n.isFlexSupported.apply(this,arguments)};o.prototype.initialize=function(e){return sap.ui.getCore().loadLibrary("sap.ui.fl",{async:true}).then(function(){return this.waitForChanges({element:e})}.bind(this)).then(function(){r.getInstance().fireStateChange(e)})};o.getInstance=function(){if(!i){i=new o}return i};return o});
+//# sourceMappingURL=FlexModificationHandler.js.map

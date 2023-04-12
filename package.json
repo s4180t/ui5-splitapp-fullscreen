@@ -5,7 +5,7 @@
   "description": "Sample: SplitApp standard use case",
   "scripts": {
     "start": "ui5 serve",
-    "build": "ui5 build self-contained --dest=docs --clean-dest"
+    "build": "ui5 build self-contained --dest=docs --clean-dest -a"
   },
   "dependencies": {
     "@openui5/sap.m": "^1",
